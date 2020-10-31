@@ -4,19 +4,16 @@ const date = new Date()
 const url = `https://prograd.ufc.br/pt/category/editais-e-resultados/editais-${date.getFullYear()}/`
 
 async function run () {
-  console.log('> Running WebScrapper')
-
   const browser = await puppeteer.launch({
-    args: [
-      '--disable-web-security'
-    ],
+    args: ['--disable-web-security'],
     headless: true
   })
 
   const page = await browser.newPage()
   await page.goto(url)
-    .then(() => console.log(`> Successfully conected to ${url}`))
-    .catch(err => console.log(err))
+    .catch(err => {
+      throw err
+    })
 
   const post = await page.evaluate(() => {
     function getPostInfo (postNumber) {
@@ -33,8 +30,6 @@ async function run () {
   })
 
   await browser.close()
-  console.log('> WebSrapper Closed!')
-
   return { post }
 }
 

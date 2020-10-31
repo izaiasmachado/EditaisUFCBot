@@ -4,6 +4,7 @@
   "description": "Seja notificado quando houver algum novo edital",
   "main": "src/index.js",
   "scripts": {
+    "dev": "nodemon -r dotenv/config src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/izaiasmachado/ufc-telegram-notify#readme",
   "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6",
     "puppeteer": "^5.4.1"
   }
 }
