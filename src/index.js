@@ -1,11 +1,13 @@
 const scraper = require('./services/scraper')
-const telegram = require('./lib/telegram')
 const watchdog = require('./services/watchdog')
+const parser = require('./services/parser')
+const telegram = require('./lib/telegram')
 
 async function main () {
-  const { post } = await scraper.run()
-  const changed = await watchdog.hasChanged({ post })
-  if (changed) await telegram.sendMessage({ message: `${post.title}\n\n${post.link}` })
+  const data = await scraper.run()
+  const changed = await watchdog.hasChanged(data)
+  const message = await parser(data)
+  if (changed) await telegram.sendMessage(message)
 }
 
-setInterval(main, 5 * 1000)
+setInterval(main, process.env.TTL)
