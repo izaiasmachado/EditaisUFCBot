@@ -7,7 +7,13 @@ async function main () {
   const data = await scraper.run()
   const changed = await watchdog.hasChanged(data)
   const message = await parser(data)
-  if (changed) await telegram.sendMessage(message)
+
+  if (!changed) return false
+  await telegram.sendMessage(message)
+    .then(async () => {
+      await watchdog.save(data)
+    })
+    .catch(() => {})
 }
 
 setInterval(main, process.env.TTL)
