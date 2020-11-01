@@ -17,13 +17,11 @@ async function run () {
 
   const post = await page.evaluate(() => {
     function getPostInfo (postNumber) {
-        const posts = document.getElementsByTagName('section')[postNumber]
-        const titleTag = posts.getElementsByTagName('a')[0]
-    
-        return {
-            title: titleTag.innerText,
-            link: titleTag.href
-        }
+        const posts = document.getElementsByTagName('section')[postNumber] || undefined
+        const titleTag = (posts) ? posts.getElementsByTagName('a')[0] : undefined
+        const title = (titleTag) ? titleTag.innerText : undefined
+        const link = (titleTag) ? titleTag.href : undefined
+        return { title, link }
     }
 
     return getPostInfo(0)
