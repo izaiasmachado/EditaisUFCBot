@@ -1,6 +1,6 @@
 module.exports = async ({ post }) => {
     const parsed = {
-        text: `*${encodeURI(post.title)}*\n\n${post.link}`,
+        text: `*${post.title}*\n\n${post.link}`,
         parse_mode: 'markdown'
     }
 
