@@ -7,8 +7,8 @@
 Só clicar para entrar no [Canal do Telegram](https://t.me/editais_ufc) e esperar algum novo edital ;)
 
 ## Como contribuir?
- - Basta fazer um fork desse projeto, fazer as alterações necessárias e então fazer um pull request quando tudo estiver pronto.
- - Você também pode fazer uma issue reportando algum problema ou função que gostaria de ver aqui nesse repositório.
+ - Basta fazer um fork desse projeto, faça suas alterações e então um pull request quando tudo estiver pronto.
+ - Você também pode criar uma issue reportando algum problema ou função que gostaria de ver aqui nesse repositório.
  - Ou também, outra forma é entrando em contato pelo email no meu perfil do Github e reportando sua experiência com essa aplicação.
 
 ## Contribuidores
